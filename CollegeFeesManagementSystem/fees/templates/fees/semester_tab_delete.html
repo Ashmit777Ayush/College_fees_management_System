@@ -1,0 +1,33 @@
+
+{% extends 'fees/main.html' %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="card text-center">
+    {% comment %} <div class="card-header">
+        Delete Student
+    </div> {% endcomment %}
+    <div class="card-body">
+        <h5 class="card-title">Delete Semester</h5>
+        <br>
+        <p>Are you sure to delete it "{{semester_tab}}"</p>
+    <br>
+    <form action="" method="POST">
+  {% csrf_token %}
+    <a href="{% url 'students' semester_tab.roll.roll %}" class="btn btn-primary">Cancel</a>
+    <input type="submit" name='confirm' class="btn btn-primary">
+    </form>
+  </div>
+  {% comment %} <div class="card-footer text-muted">
+    2 days ago
+  </div> {% endcomment %}
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock  %}

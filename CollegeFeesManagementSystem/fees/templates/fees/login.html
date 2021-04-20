@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+        <style>
+
+    #hero-image {
+  background-image: url({% static 'images/computer-2561477__340.webp' %});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  opacity: 0.9;
+  z-index: 1;
+}
+        </style>
+   
+</head>
+<!-- background-color: #cccccc;
+height: 500px; -->
+<body>
+
+    
+<div class="card text-white bg-dark mb-3" id='hero-image'>
+    <div class="card-header bg-transparent border-secondary" style="text-align: center;">
+        <h2 class="card-title" style="text-align: center;">College Login</h2>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="card-body text-light">
+        {% for message in messages %}
+        <p>
+        <h4 style="text-align: center; color: darkgray;"> {{message}}</h4>
+        </p>
+        {% endfor %}
+        <br>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-3">
+                </div>
+                <div class="col-1">
+                    <strong>username</strong>
+                </div>
+                <div class="col-5">
+                    <input type="text" name='username' class="w-100 p-1">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                </div>
+                <div class="col-1">
+                    <strong>Password</strong>
+                </div>
+                <div class="col-5">
+                    <input type="password" name='password' class="w-100 p-1">
+                </div>
+            </div>
+
+            <br>
+            <div class="card-footer" style="text-align: center; border: none;">
+                <a href="" class="link-warning">Forgot Password</a>
+            </div>
+            <br>
+            <div class="row ">
+                <div class="col-3">
+                </div>
+                <div class="col-6">
+                    <input type="submit" class="btn btn-danger border-light w-100 p-1" value="login">
+                </div>
+            </div>
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+</html>
+
+
+
+<!-- <form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name='username'>
+    <input type="password" name='password'>
+    <input type="submit" value="login">
+</form> -->

@@ -1,0 +1,92 @@
+{% extends 'fees/main.html' %}
+
+{% block content %}
+
+
+<br>
+<div class="row">
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white nb-3" id='Students-Contact-Information'>
+                <div class="card-header">
+                    <h5 class="card-title">{{student_data.firstname}}</h5>
+                </div>
+                <div class="card-body">
+                    <hr>
+                    <div class="card card-body" , id='Students-Contact-body'>
+                        <p style="text-align: center;">Roll No : {{student_data.roll}} </p>
+
+                        <p style="text-align: center;">Branch : {{student_data.branch}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white nb-3" id='Students-Contact-Information'>
+                <div class="card-header">
+                    <h5 class="card-title">Contact Information</h5>
+                </div>
+                <div class="card-body">
+                    <hr>
+                    <div class="card card-body" , id='Students-Contact-body'>
+                        <p style="text-align: center;">Email: {{student_data.email}} </p>
+
+                        <p style="text-align: center;">Phone: {{student_data.phone}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+
+<br>
+<br>
+<div class="row">
+    <div class="col-md">
+
+        <div class="card card-body">
+
+            
+            <br>
+
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Sem</th>
+                        <th scope="col">type</th>
+                        <th scope="col">Year</th>
+                        {% comment %} <th scope="col">Update</th>
+                        <th scope="col">Remove</th> {% endcomment %}
+                    </tr>
+                </thead>
+
+                {% for sems in semester_tabs %}
+
+                <tr>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'user_student_each_sem' sems.id %}">View</a></td>
+                    <td>{{sems.semestertype}} </td>
+                    <td>{{sems.monsoon_wintertype}} </td>
+                    <td>{{sems.Year}} </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

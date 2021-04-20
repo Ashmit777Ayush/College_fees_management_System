@@ -1,0 +1,88 @@
+{% extends 'fees/main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<br>
+<br>
+<br>
+<div class="row">
+    <a class="btn btn-dark" href="{% url 'announcement_create' %}"> <strong> New Announcement</strong> </a>
+</div>
+<!-- <hr> -->
+<br>
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card">
+            <div class="card card-body" style="background-color:  rgb(245, 238, 226);">
+
+
+                <form action="" method="get">
+
+                    {% csrf_token %}
+                    <div class="row" style="background-color:  rgb(245, 238, 226);">
+                        <div class="col-2">
+                            <strong>{{ myfilter.form.start|as_crispy_field }}</strong>
+                        </div>
+                        <div class="col-2">
+                            <strong>{{ myfilter.form.end|as_crispy_field }}</strong>
+                        </div>
+                        <div class="col-2">
+                            <strong>{{ myfilter.form.Status|as_crispy_field }}</strong>
+                        </div>
+                        <div class="col-2">
+                            <strong>{{ myfilter.form.Show|as_crispy_field }}</strong>
+                        </div>
+                        <div class="col-1">
+
+                        </div>
+                        <div class="col-2">
+                            {% comment %} {{ myfilter.form.phone|as_crispy_field }} {% endcomment %}
+                            <br>
+                            <button class="btn btn-primary" type="submit">Search Announcement</button>
+                        </div>
+                        <br>
+                    </div>
+
+                    <br>
+                </form>
+                {% comment %} <h5 class="card-title btn btn-primary"> Students </h5> {% endcomment %}
+                <br>
+
+                <div style="overflow-y:scroll;height: 600px;">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Subject.</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">datecreated</th>
+                                <th scope="col">Show</th>
+                            </tr>
+                        </thead>
+
+                        {% for ann in announcements %}
+                        <tr>
+                            <td><a class="btn btn-sm btn-info" href="{% url 'open_announcement' ann.id %}">Open</a></td>
+                            <td>{{ann.Subject}}</td>
+                            <td>{{ann.Status}}</td>
+                            <td>{{ann.datecreated}}</td>
+                            <td>{{ann.Show}}</td>
+
+
+                        </tr>
+                        {%endfor%}
+
+                    </table>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

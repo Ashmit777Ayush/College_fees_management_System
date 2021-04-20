@@ -1,0 +1,81 @@
+{% extends 'fees/main.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+<div class="card text-white border-secondary bg-dark mb-3">
+    <div class="card-header bg-transparent border-secondary" style="text-align: center;">
+
+        <h1 class="card-title" style="text-align: center;">Register New Student</h1>
+
+
+    </div>
+    <div class="card-header bg-transparent border-secondary" style="text-align: center;">
+
+        <!-- for the file part -->
+        <div class="row ">
+            <div class="col-3">
+            </div>
+            <div class="col-4">
+                <h4 class="card-title" style="text-align: left; color: rgb(103, 103, 226);">Upload File to register Students</h4>
+            </div>
+            <div class="col-2" >
+                <a href="{% url 'upload_file' %}" class="btn btn-light btn-sm btn-block" style="background-color:rgb(192, 236, 236); "> Upload File </a>
+            </div>
+            <div class="col-2" >
+
+            </div>
+            <div class="col-1" >
+                <a href="{% url 'format' '1' %}" class="btn btn-light btn-sm btn-block" style="background-color:rgb(192, 236, 236); "> Get Format </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body text-light">
+        {% for message in messages %}
+        <p>
+        <h3 style="text-align: center; color: darkgray;"> {{message}}</h3>
+        </p>
+        {% endfor %}
+
+        <br>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% for x in form %}
+            <div class="row">
+                <div class="col-3">
+                </div>
+                <div class="col-6">
+                    <strong>{{ x|as_crispy_field }}</strong>
+              </div>
+                <div class="col-3">
+                </div>
+            </div>
+            {% endfor %}
+
+            <br>
+            <br>
+            {% comment %} <div class="card-footer text-muted" style="text-align: center;">
+                {% for x in form.errors.split('\n') %}
+                <h6>{{x}}</h6>
+                {% endfor %}
+            </div> {% endcomment %}
+            <div class="row ">
+                <div class="col-2">
+                </div>
+                <div class="col-8">
+                    <input type="submit" name='CreateStudent' class="btn btn-danger border-light w-100 p-1">
+                </div>
+            </div>
+        </form>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+
+
+{% endblock %}

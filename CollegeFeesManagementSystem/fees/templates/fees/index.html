@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFMS</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" type='text/css'>
+    <style>
+        .hero {
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+            url({% static 'images/IIIT-Guwahati.jpg' %});
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="StudentLogin()">Student Login</button>
+                <button type="button" class="toggle-btn" onclick="AdminLogin()">Admin Login</button>
+            </div>
+            <br>
+            {% for message in messages %}
+            <p>
+            <h6 style="text-align: center; color: white;"> {{message}}</h6>
+            </p>
+            {% endfor %}
+            <br>
+            <br>
+            <form action="" id="student_login" class="input-group" method="POST">
+                {% csrf_token %}
+                <input type="text" class="input-field" placeholder="User Id" name='username' required>
+                <input type="Password" class="input-field" placeholder="Enter Password" autocomplete="new-password" name='password' required>
+                <input type="hidden" name='checker' value='student'>
+                <!-- <input type="checkbox" class="check-box"><span>Remember Password</span> -->
+                <button type="submit" class="submit-btn">Login</button>
+                <a href="{% url 'reset_password' %}" class="forgot">Forgot Password</a>
+            </form>
+            <form action="" id="admin_login" class="input-group" method="POST">
+                {% csrf_token %}
+                <input type="text" class="input-field" placeholder="User Id" name='username' required>
+                <input type="Password" class="input-field" placeholder="Enter Password" autocomplete="new-password" name='password' required>
+                <input type="hidden" name='checker' value='admin'>
+                <!-- <input type="checkbox" class="check-box"><span>Remember Password</span> -->
+                <button type="submit" class="submit-btn">Login</button>
+                <a href="{% url 'reset_password' %}" class="forgot">Forgot Password</a>
+            </form>
+        </div>
+    </div>
+    <script>
+        var x = document.getElementById("student_login");
+        var y = document.getElementById("admin_login");
+        var z = document.getElementById("btn");
+
+        function AdminLogin() {
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        }
+        function StudentLogin() {
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+        }
+    </script>
+</body>
+
+</html>

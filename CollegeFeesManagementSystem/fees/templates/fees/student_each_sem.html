@@ -1,0 +1,308 @@
+{% extends 'fees/main.html' %}
+
+{% block content %}
+
+
+<br>
+
+<div class="row">
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white nb-3" id='Students-Contact-Information'>
+                <div class="card-header">
+                    <h5 class="card-title">{{student_data.firstname}}</h5>
+                </div>
+                <div class="card-body">
+                    <hr>
+                    <div class="card card-body" , id='Students-Contact-body'>
+                        <p style="text-align: center;">Roll No : {{student_data.roll}} </p>
+
+                        <p style="text-align: center;">Branch : {{student_data.branch}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white nb-3" id='Students-Contact-Information'>
+                <div class="card-header">
+                    <h5 class="card-title">Contact Information</h5>
+                </div>
+                <div class="card-body">
+                    <hr>
+                    <div class="card card-body" , id='Students-Contact-body'>
+                        <p style="text-align: center;">Email: {{student_data.email}} </p>
+
+                        <p style="text-align: center;">Phone: {{student_data.phone}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} {% endcomment %}
+
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white nb-3" id='Students-Customer'>
+                <div class="card-header">
+                    <h5 class="card-title">Semester</h5>
+                </div>
+                <div class="card-body">
+                    <hr>
+                    <a href="{% url 'updateSemester' current_sem.id %}"
+                        class="btn btn-light btn-sm btn-block">Update Semester</a>
+
+                    <br>
+                    <br>
+                    <a href="{% url 'deleteSemester' current_sem.id %}" class="btn btn-light btn-sm btn-block">
+                        Delete Semester</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr>
+<br>
+<div class="row">
+    <div class="card">
+        <div class="card text-center card-body text-black nb-3" style="background-color: rgb(245, 238, 226);">
+            <div class="card-header" style="background-color: rgb(207, 58, 245);">
+                <strong>
+                    <h3>Tuition Fee</h3>
+                </strong>
+            </div>
+
+            <div class="card-body">
+                <div class='row'>
+                    <div class="col-2">
+                    </div>
+
+                    <div class="col-3">
+                        <strong>
+                            <h4 class="card-title">AMOUNT </h4>
+                        </strong>
+                    </div>
+                    <div class="col-2">
+                        <strong>
+                            <h4 class="card-title">&nbsp;-----> </h4>
+                        </strong>
+                    </div>
+
+                    <div class="col-3">
+                        <strong>
+                            <h4 class="card-title">{{current_sem.tution_fee}}</h4>
+                        </strong>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% comment %} hostel fes {% endcomment %}
+
+<hr>
+<br>
+<br>
+<div class="row">
+    <div class="card">
+        <div class="card text-center card-body text-black nb-3" style="background-color: rgb(245, 238, 226);">
+            <div class="card-header" style="background-color: rgb(207, 58, 245);">
+                <strong>
+                    <h3>Hostel Fee</h3>
+                </strong>
+            </div>
+
+            <div class="card-body">
+                <div class='row'>
+                    <div class="col-2">
+                    </div>
+
+                    <div class="col-3">
+                        <strong>
+                            <h4 class="card-title">AMOUNT </h4>
+                        </strong>
+                    </div>
+                    <div class="col-2">
+                        <strong>
+                            <h4 class="card-title">&nbsp;-----> </h4>
+                        </strong>
+                    </div>
+                    <div class="col-3">
+                        <strong>
+                            <h4 class="card-title">{{current_sem.hostel_fee}}</h4>
+                        </strong>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+{% comment %} mess bill {% endcomment %}
+
+<hr>
+<br>
+<div class="row">
+    <div class="card">
+        <div class="card text-center card-body text-black nb-3" style="background-color: rgb(245, 238, 226);">
+            <div class="card-header" style="background-color: rgb(207, 58, 245);">
+                <strong>
+                    <h3>Mess Bill</h3>
+                </strong>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Month</th>
+                            <th scope="col">Amount</th>
+                        </tr>
+                    </thead>
+
+                    <tr>
+                        <td>{{current_sem.mon_1}}</td>
+                        <td>{{current_sem.mon_1_amount}}</td>
+
+                    </tr>
+
+                    <tr>
+                        <td>{{current_sem.mon_2}}</td>
+                        <td>{{current_sem.mon_2_amount}}</td>
+
+                    </tr>
+
+                    <tr>
+                        <td>{{current_sem.mon_3}}</td>
+                        <td>{{current_sem.mon_3_amount}}</td>
+
+                    </tr>
+
+                    <tr>
+                        <td>{{current_sem.mon_4}}</td>
+                        <td>{{current_sem.mon_4_amount}}</td>
+
+                    </tr>
+
+                    <tr>
+                        <td>{{current_sem.mon_5}}</td>
+                        <td>{{current_sem.mon_5_amount}}</td>
+
+                    </tr>
+
+                    <tr>
+                        <td>{{current_sem.mon_6}}</td>
+                        <td>{{current_sem.mon_6_amount}}</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<hr>
+<br>
+<div class="row">
+    <div class="card">
+        <div class="card text-center card-body text-black nb-3" style="background-color: rgb(229, 226, 245);">
+            <div class="card-header" style="background-color: rgb(207, 58, 245);">
+                <strong>
+                    <h3>Extra Charges</h3>
+                </strong>
+            </div>
+
+            <div class="card-body">
+                <div class='row'>
+                    <div class="col-1">
+                    </div>
+
+                    <div class="col-7">
+                        <strong>
+                            <h4 class="card-title">{{current_sem.extra_charges}}</h4>
+                        </strong>
+                    </div>
+
+                    <div class="col-2">
+                    </div>
+
+                    <div class="col-2">
+                        <strong>
+                            <h4 class="card-title">{{current_sem.extra_charges_amount}}</h4>
+                        </strong>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<hr>
+<br>
+<br>
+<div class="row">
+    <div class="card">
+    <div class="card text-center card-body text-white nb-3" style="background-color: black;">
+        <div class='row'>
+            <div class="col-1">
+            </div>
+
+            <div class="col-2">    
+                    <h4 class="card-title">Total Amount :--</h4>
+            </div>
+
+            <div class="col-1">
+                    <h4 class="card-title">{{current_sem.total_payment}}</h4>
+            </div>
+            
+            <div class="col-1">
+            </div>
+            <div class="col-2">    
+                <h4 class="card-title">Total Paid :--</h4>
+            </div>
+            
+            <div class="col-1">
+                <h4 class="card-title">{{current_sem.total_paid}}</h4>
+            </div>
+            <div class="col-1">
+            </div>
+
+            <div class="col-1">
+                    <h4 class="card-title">Dues :--</h4>
+            </div>
+
+            <div class="col-1">
+                    <h4 class="card-title">{{current_sem.dues}}</h4>
+            </div>
+
+            <div class="col-1">
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

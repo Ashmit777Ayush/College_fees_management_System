@@ -1,0 +1,73 @@
+{% extends 'fees/main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'fees/status.html' %}
+<hr>
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card">
+            <div class="card card-body" style="background-color:  rgb(245, 238, 226);">
+
+                {% comment %} for the form search {% endcomment %}
+                <form action="" method="get">
+                    {% comment %} {{myfilter.form|crispy}} {% endcomment %}
+                    {% csrf_token %}
+                    <div class="row" style="background-color:  rgb(245, 238, 226);">
+                        <div class="col-3">
+                            <strong>{{ myfilter.form.roll|as_crispy_field }}</strong>
+                        </div>
+                        <div class="col-5">
+                            <strong>{{ myfilter.form.email|as_crispy_field }}</strong>
+
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div class="col-3">
+                            {% comment %} {{ myfilter.form.phone|as_crispy_field }} {% endcomment %}
+                            <br>
+                            <button class="btn btn-primary" type="submit">Search Student</button>
+                        </div>
+                        <br>
+                    </div>
+
+                    <br>
+                </form>
+                {% comment %} <h5 class="card-title btn btn-primary"> Students </h5> {% endcomment %}
+                <br>
+
+                <div style="overflow-y:scroll;height: 710px;">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Roll_No.</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Batch</th>
+                            </tr>
+                        </thead>
+
+                        {% for student in students %}
+                        <tr>
+                            <td><a class="btn btn-sm btn-info" href="{% url 'students' student.roll %}">View</a></td>
+                            <td>{{student.roll}}</td>
+                            <td>{{student.firstname}}</td>
+                            <td>{{student.email}}</td>
+                            <td>{{student.phone}}</td>
+                            <td>{{student.branch}}{{', '}}{{student.course}}{{', '}}{{student.Year}}</td>
+
+                        </tr>
+                        {%endfor%}
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

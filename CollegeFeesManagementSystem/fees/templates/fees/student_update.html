@@ -1,0 +1,65 @@
+{% extends 'fees/main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br>
+<br>
+<form action="" method="POST">
+  {% csrf_token %}
+
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-6">
+      <strong>{{ form.roll|as_crispy_field }}</strong>
+    </div>
+    <div class="col-6">
+      <strong>{{ form.email|as_crispy_field }}</strong>
+    </div>
+  </div>
+
+    <hr>
+  <br>
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-6">
+      <strong>{{ form.phone|as_crispy_field }}</strong>
+    </div>
+    <div class="col-6">
+      <strong>{{ form.branch|as_crispy_field }}</strong>
+    </div>
+  </div>
+  <hr>
+  <br>
+
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-4">
+      <strong>{{ form.firstname|as_crispy_field }}</strong>
+    </div>
+    <div class="col-4">
+      <strong>{{ form.middlename|as_crispy_field }}</strong>
+    </div>
+    <div class="col-4">
+      <strong>{{ form.lastname|as_crispy_field }}</strong>
+    </div>
+  </div>
+  <hr>
+  <br>
+
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-6">
+      <strong>{{ form.Year|as_crispy_field }}</strong>
+    </div>
+    <div class="col-6">
+      <strong>{{ form.course|as_crispy_field }}</strong>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <input type="submit" name='Submit' class="btn btn-dark">
+  </div>
+
+  <br>
+
+
+</form>
+
+{% endblock  %}

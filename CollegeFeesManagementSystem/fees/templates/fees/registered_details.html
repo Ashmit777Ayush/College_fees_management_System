@@ -1,0 +1,62 @@
+{% extends 'fees/main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'fees/status.html' %} 
+<hr>
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card">
+            <div class="card card-body" style="background-color:  rgb(245, 238, 226);">
+                <form action="" method="get">
+                    {% csrf_token %}
+                    <div class="row" style="background-color:  rgb(245, 238, 226);">
+                        <div class="col-4">
+                            <strong>{{ myfilter.form.start|as_crispy_field }}</strong>
+                        </div>
+                        <div class="col-4">
+                            <strong>{{ myfilter.form.end|as_crispy_field }}</strong>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div class="col-3">
+                        <br>
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                        <br>
+                    </div>
+
+                    <br>
+                </form>
+                <br>
+
+                <div style="overflow-y:scroll;height: 710px;">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr >
+                            <th scope="col">Title</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Get Uploaded File</th>
+                            <th scope="col">Get Password File</th>
+                            <th scope="col">Send Email</th>
+                            <th scope="col">Email Status</th>
+                        </tr>
+                    </thead>
+                        {% for file in all_files %}
+                        <tr>
+                            <td>{{file.title}}</td>
+                            <td>{{file.datecreated}}</td>
+                            <td><a class="btn btn-sm btn-info" href="{% url 'return_uploaded_registered' file.id %}">Download</a></td>
+                            <td><a class="btn btn-sm btn-info" href="{% url 'get_password' file.id %}">Download</a></td>
+                            <td><a class="btn btn-sm btn-info" href="{% url 'send_register_mail' file.id%}">Send</a></td>
+                            <td>{{file.email_sent}}</td>
+                        </tr>
+                        {%endfor%}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

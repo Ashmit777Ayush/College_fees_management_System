@@ -1,0 +1,100 @@
+{% extends 'fees/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {% comment %} this name in views.py of SemesterForm {% endcomment %}
+    <div class="row" style="background-color: rgb(245, 238, 226);">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+            <strong>{{ form.roll|as_crispy_field }}</strong>
+        </div>
+
+    </div>
+    
+
+    {% comment %} tution fees {% endcomment %}
+    <div class="row" style="background-color: rgb(245, 238, 226);">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+            <strong>{{ form.name|as_crispy_field }}</strong>
+        </div>
+
+    </div>
+    
+    
+
+    {% comment %} hostel fees {% endcomment %}
+    <div class="row" style="background-color: rgb(245, 238, 226);">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+            <strong>{{ form.email|as_crispy_field }}</strong>
+        </div>
+
+    </div>
+
+    {% comment %} month mess bill {% endcomment %}
+    <div class="row" style="background-color: rgb(245, 238, 226);">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+            <strong>{{ form.branch|as_crispy_field }}</strong>
+        </div>
+
+    </div>
+    
+
+    <div class="row" style="background-color:rgb(245, 238, 226);">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+            <strong>{{ form.Enquiry|as_crispy_field }}</strong>
+        </div>
+
+    </div>
+    
+    <br>
+
+<div class="row" style="background-color:rgb(245, 238, 226);">
+        <div class="col-3">
+        </div>
+        <div class="col-5">
+        <strong>Go To Student Profile</strong>
+        </div>
+        <div class="col-1">
+            <strong><a class="btn btn-sm btn-info" href="{% url 'students' student_data.roll %}">Open </a></strong>
+        </div>
+
+    </div>
+<br>
+<div class="row" style="background-color:rgb(245, 238, 226);">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+            <strong>{{ form.Enquiry_status|as_crispy_field }}</strong>
+        </div>
+
+    </div>
+    
+
+
+<br>
+    <div class="row" style="background-color: rgb(245, 238, 226);">
+        <input type="submit" name='submit' value='Save' class="btn btn-dark">
+    </div>
+
+    <br>
+
+
+</form>
+
+{% endblock %}
+
+
+

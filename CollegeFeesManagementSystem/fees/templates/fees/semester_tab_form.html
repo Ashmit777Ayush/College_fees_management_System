@@ -1,0 +1,151 @@
+{% extends 'fees/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  {% comment %} this name in views.py of SemesterForm {% endcomment %}
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-3">
+      <strong>{{ form.roll|as_crispy_field }}</strong>
+    </div>
+    <div class="col-3">
+      <strong>{{ form.semestertype|as_crispy_field }}</strong>
+
+    </div>
+    <div class="col-3">
+      <strong>{{ form.monsoon_wintertype|as_crispy_field }}</strong>
+    </div>
+    <div class="col-3">
+      <strong>{{ form.Year|as_crispy_field }}</strong>
+
+    </div>
+  </div>
+  <hr>
+  <br>
+
+  {% comment %} tution fees {% endcomment %}
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-6">
+      <strong>{{ form.tution_fee|as_crispy_field }}</strong>
+    </div>
+    <div class="col-6">
+      <strong>{{ form.hostel_fee|as_crispy_field }}</strong>
+    </div>
+  </div>
+  <hr>
+  <br>
+
+
+
+  {% comment %} month mess bill {% endcomment %}
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-6">
+      <strong>{{ form.mon_1|as_crispy_field }}</strong>
+    </div>
+    <div class="col-6">
+      <strong>{{ form.mon_1_amount|as_crispy_field }}</strong>
+    </div>
+
+  </div>
+  <br>
+
+  <div class="row" style="background-color:rgb(245, 238, 226);">
+    <div class="col-6">
+      <strong>{{ form.mon_2|as_crispy_field }}</strong>
+    </div>
+    <div class="col-6">
+      <strong>{{ form.mon_2_amount|as_crispy_field }}</strong>
+    </div>
+
+  </div>
+  <br>
+
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-6">
+      <strong>{{ form.mon_3|as_crispy_field }}</strong>
+    </div>
+    <div class="col-6">
+      <strong>{{ form.mon_3_amount|as_crispy_field }}</strong>
+    </div>
+
+  </div>
+  <br>
+
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-6">
+      <strong>{{ form.mon_4|as_crispy_field }}</strong>
+    </div>
+    <div class="col-6">
+      <strong>{{ form.mon_4_amount|as_crispy_field }}</strong>
+    </div>
+
+  </div>
+  <br>
+
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-6">
+      <strong>{{ form.mon_5|as_crispy_field }}</strong>
+    </div>
+    <div class="col-6">
+      <strong>{{ form.mon_5_amount|as_crispy_field }}</strong>
+    </div>
+
+  </div>
+  <br>
+
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-6">
+      <strong>{{ form.mon_6|as_crispy_field }}</strong>
+    </div>
+    <div class="col-6">
+      <strong>{{ form.mon_6_amount|as_crispy_field }}</strong>
+    </div>
+
+  </div>
+  <hr>
+  <br>
+
+
+  <!-- extra -->
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-9">
+      <strong>{{ form.extra_charges|as_crispy_field }}</strong>
+    </div>
+    <div class="col-3">
+      <strong>{{ form.extra_charges_amount|as_crispy_field }}</strong>
+    </div>
+
+  </div>
+  <hr>
+  <br>
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <div class="col-3">
+      <strong>{{ form.total_payment|as_crispy_field }}</strong>
+    </div>
+    <div class="col-1">
+    </div>
+    <div class="col-3">
+      <strong>{{ form.total_paid|as_crispy_field }}</strong>
+    </div>
+    <div class="col-1">
+    </div>
+    <div class="col-3">
+      <strong>{{ form.dues|as_crispy_field }}</strong>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="row" style="background-color: rgb(245, 238, 226);">
+    <input type="submit" name='Submit' class="btn btn-dark">
+  </div>
+
+  <br>
+
+
+</form>
+
+{% endblock %}
