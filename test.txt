@@ -1,0 +1,17 @@
+--------- to run all class
+python manage.py test fees.tests.test_models 
+
+--------- all class with more information
+python manage.py test fees.tests.test_models --verbosity 2
+
+
+------- individual class
+python manage.py test fees.tests.test_models.CLASSNAME
+
+
+
+
+
+-------------------
+create grp
+Group.objects.get_or_create(name='admin')
